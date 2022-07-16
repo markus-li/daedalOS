@@ -1,23 +1,31 @@
+/* eslint-disable import/namespace */
+/* eslint-disable @typescript-eslint/restrict-template-expressions */
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import type { Size } from "components/system/Window/RndWindow/useResizable";
 import type { AsyncZipOptions } from "fflate";
+import * as constantsOverride from "utils/constantsOverride";
 
 export const BASE_2D_CONTEXT_OPTIONS: CanvasRenderingContext2DSettings = {
   alpha: false,
   desynchronized: true,
 };
 
-export const DEFAULT_LOCALE = "en";
+export const DEFAULT_LOCALE = (constantsOverride.DEFAULT_LOCALE ||
+  "en") as string;
 
-export const DEFAULT_THEME = "defaultTheme";
+export const DEFAULT_THEME = (constantsOverride.DEFAULT_THEME ||
+  "defaultTheme") as string;
 
 export const THIN_SCROLLBAR_WIDTH = 13;
 
 export const BASE_CLOCK_WIDTH = 66;
 
-export const DEFAULT_WINDOW_SIZE: Size = {
-  height: 300,
-  width: 405,
-};
+export const DEFAULT_WINDOW_SIZE: Size =
+  (constantsOverride.DEFAULT_WINDOW_SIZE || {
+    height: 300,
+    width: 405,
+  }) as Size;
 
 export const FOCUSABLE_ELEMENT = { tabIndex: -1 };
 
@@ -205,7 +213,7 @@ export const MEDIA_FILE_EXTENSIONS = new Set([
   ...VIDEO_FILE_EXTENSIONS,
 ]);
 
-export const ROOT_NAME = "My PC";
+export const ROOT_NAME = (constantsOverride.ROOT_NAME || "My PC") as string;
 
 export const ROOT_SHORTCUT = `${ROOT_NAME}.url`;
 
@@ -229,8 +237,8 @@ export const MOUNTED_FOLDER_ICON = `${ICON_PATH}/mounted.webp`;
 
 export const NEW_FOLDER_ICON = `${ICON_PATH}/new_folder.webp`;
 
-export const UNKNOWN_ICON =
-  "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAB0ElEQVR42u2ZVWLbQBiEp/K6DOpb+LF4ip47oCuULpAYH3uAlcbMNOZpm0lsizWz+/3CgEc9aiuFHz9/YYVIcjAAkODcYYDoTyPQHZse7m0E49tLkid/8rz4BuD7RgFIYpW+fvmMXStJEvz+/RuvXr1KG41mVhT5RiECRMUYsUuF0Nv18+fPcXp6ktbrjSzPhRBCDxxUpVKpG+Ls7DSt1eprhwjYWwAdJQD9EGftELV2iCiHCAQMAvT04sVznJ+fpdVqNcuj1hOBJj0wCvECFxcXaeWhIuEUYFADAGZCXF5dpg/3DxmA99YIZVmGRXr58lVqi1CMER8+fOh+pkUS5XIZd7d3ylEIViI5M7wCITqa1wOAtDVPKD1A45andC1ES/N6DZCuzKsIWZr3RoikMK4jZGleD2BsntDOA74tT0gIOZrXEfJmXiti24KleBi1M09SThBIU/P6mZiW5qEXMW3NUzuMGrc8NYRssSE0hFyZVxFyLVgdIcOW51oIWZqHfj9ga15+rOLb8lIRg47m9RoQ/R+eeb0GaGleR8i15XWEqL5VFIIJ87V5u70nvrm+AUF0/8nx4ZlxgOj+9KeTk+Oz8/rrYnIYBAoWeNSj9qwWS/T9vUU9j2EAAAAASUVORK5CYII=";
+export const UNKNOWN_ICON = (constantsOverride.UNKNOWN_ICON ||
+  "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAB0ElEQVR42u2ZVWLbQBiEp/K6DOpb+LF4ip47oCuULpAYH3uAlcbMNOZpm0lsizWz+/3CgEc9aiuFHz9/YYVIcjAAkODcYYDoTyPQHZse7m0E49tLkid/8rz4BuD7RgFIYpW+fvmMXStJEvz+/RuvXr1KG41mVhT5RiECRMUYsUuF0Nv18+fPcXp6ktbrjSzPhRBCDxxUpVKpG+Ls7DSt1eprhwjYWwAdJQD9EGftELV2iCiHCAQMAvT04sVznJ+fpdVqNcuj1hOBJj0wCvECFxcXaeWhIuEUYFADAGZCXF5dpg/3DxmA99YIZVmGRXr58lVqi1CMER8+fOh+pkUS5XIZd7d3ylEIViI5M7wCITqa1wOAtDVPKD1A45andC1ES/N6DZCuzKsIWZr3RoikMK4jZGleD2BsntDOA74tT0gIOZrXEfJmXiti24KleBi1M09SThBIU/P6mZiW5qEXMW3NUzuMGrc8NYRssSE0hFyZVxFyLVgdIcOW51oIWZqHfj9ga15+rOLb8lIRg47m9RoQ/R+eeb0GaGleR8i15XWEqL5VFIIJ87V5u70nvrm+AUF0/8nx4ZlxgOj+9KeTk+Oz8/rrYnIYBAoWeNSj9qwWS/T9vUU9j2EAAAAASUVORK5CYII=") as string;
 
 export const UNKNOWN_ICON_PATH = `${ICON_PATH}/unknown.webp`;
 
@@ -240,12 +248,18 @@ export const DEFAULT_SCROLLBAR_WIDTH = 17;
 
 export const TASKBAR_HEIGHT = 30;
 
-export const PACKAGE_DATA = {
+export const PACKAGE_DATA = (constantsOverride.PACKAGE_DATA || {
   alias: "daedalOS",
   author: "Dustin Brett",
   description: "Desktop environment in the browser",
   license: "MIT",
   version: "2.0.0",
+}) as {
+  alias: string;
+  author: string;
+  description: string;
+  license: string;
+  version: string;
 };
 
 export const BASE_ZIP_CONFIG: AsyncZipOptions = {
