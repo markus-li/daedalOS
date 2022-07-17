@@ -141,7 +141,8 @@ for (let i in template) {
           "manifest.json"
         );
         const manifest = JSON.parse(fs.readFileSync(manifestPath).toString());
-        manifest.appData.Component = `dynamic(() => import("components/apps/${app}/component"))`;
+        const component = manifest.component ? manifest.component : app;
+        manifest.appData.Component = `dynamic(() => import("components/apps/${component}/component"))`;
         generatedDirectoryFile.write(
           "  " +
             app +

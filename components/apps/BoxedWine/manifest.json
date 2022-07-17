@@ -4,6 +4,7 @@
   "description": "BoxedWine",
   "author": "Dustin Brett <dustinbrett@gmail.com> (https://dustinbrett.com)",
   "license": "MIT",
+  "component": "BoxedWine",
   "appData": {
     "title": "BoxedWine",
     "allowResizing": false,
