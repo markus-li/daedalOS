@@ -1,0 +1,23 @@
+{
+  "name": "BoxedWine",
+  "version": "2.0.0",
+  "description": "BoxedWine",
+  "author": "Dustin Brett <dustinbrett@gmail.com> (https://dustinbrett.com)",
+  "license": "MIT",
+  "appData": {
+    "title": "BoxedWine",
+    "allowResizing": false,
+    "background": "#000",
+    "defaultSize": {
+      "height": 480,
+      "width": 640
+    },
+    "icon": "/System/Icons/boxedwine.webp",
+    "singleton": true
+  },
+  "appDependencies": {
+    "Browser": "^2.0.0"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}

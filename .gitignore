@@ -2,6 +2,8 @@
 node_modules
 out
 
+appsEnabled
+
 public/robots.txt
 public/.index/*
 public/Users/Public/**
